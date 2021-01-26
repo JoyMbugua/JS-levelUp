@@ -6,7 +6,7 @@ class Car {
     clutch;
 
 
-    constructor(gearbox, wheels, seats, windows, engine, glutch){
+    constructor(gearbox, wheels, seats, windows, engine, clutch){
         this.gearBox = gearbox;
         this.seats = seats;
         this.windows = windows;
@@ -15,7 +15,7 @@ class Car {
     }
 
     startClutch(){
-        return console.log("clutch has started");
+        console.log("clutch has started");
     }
 
     startEngine(){
@@ -23,29 +23,31 @@ class Car {
     }
 
     startCar(){
-        console.log(this.startClutch + " and " + this.startEngine)
+        console.log(this.startClutch() + " and " + this.startEngine())
     }
 }
 
 class Porsche extends Car {
 
-    constructor(gearbox, seats, windows, mirrors, engine, glutch)
-    super(gearbox, seats, windows, mirrors, engine, glutch)
+    constructor(gearbox, seats, windows, mirrors, engine, clutch){
+        super(gearbox, seats, windows, mirrors, engine, clutch)
+    }
 }
 
 class Toyota extends Car {
     
-    constructor(gearbox, seats, windows, color, engine, glutch)
-    super(gearbox,seats, windows, color, engine = "Toyota engine", glutch)
-    startEngine(){
-        console.log("the engine has started")
+    constructor(gearbox, seats, windows, color, engine, clutch){
+        super(gearbox,seats, windows, color, engine = "Toyota engine", clutch)
     }
+    
 }
 
 class Volkaswagen extends Car {
     
-    constructor(gearbox, seats, windows, color, engine, glutch)
-    super(gearbox,seats, windows, color, engine = "Porsche engine", glutch)
+    constructor(gearbox, seats, windows, color, engine, clutch){
+        super(gearbox,seats, windows, color, engine = "Porsche engine", clutch)
+    }
 }
 
 const car1 = new Porsche("planetary", "4", "tempered", "grey", "4806cc", "multiplate")
+car1.startClutch()
